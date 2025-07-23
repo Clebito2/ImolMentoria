@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proposta de Consultoria para IMOL | Live</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* CSS com a Identidade Visual Live Aprimorada */
+        :root {
+            --live-azul-petroleo: #06192a;
+            --live-verde-vibrante: #00e800;
+            --live-branco: #ffffff;
+            --live-cinza-claro: #f8f9fa;
+            --live-cinza-medio: #6c757d;
+            --live-cinza-escuro: #111827;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--live-azul-petroleo);
+            /* Textura de Círculos */
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28'%3E%3Ccircle cx='14' cy='14' r='2' fill='%2300e800' fill-opacity='0.06'/%3E%3C/svg%3E");
+            color: var(--live-branco);
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            padding: 20px 0;
+            text-align: center;
+        }
+        .header img {
+            height: 50px;
+        }
+        .hero {
+            padding: 100px 20px;
+            text-align: center;
+            background: linear-gradient(rgba(6, 25, 42, 0.85), rgba(6, 25, 42, 1)), url('https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2832&auto=format&fit=crop') no-repeat center center;
+            background-size: cover;
+            border-radius: 0 0 30px 30px;
+        }
+        .hero h2 {
+            font-size: 3rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+        }
+        .section {
+            padding: 80px 20px;
+            text-align: center;
+        }
+        .section h2 {
+            font-size: 2.5rem;
+            color: var(--live-branco);
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        .section > p {
+            font-family: 'Merriweather', serif;
+            font-size: 1.1rem;
+            color: var(--live-cinza-claro);
+            max-width: 800px;
+            margin: 0 auto 40px auto;
+            line-height: 1.8;
+        }
+        .diagnosis-box {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-left: 4px solid var(--live-verde-vibrante);
+            padding: 30px;
+            text-align: left;
+            border-radius: 8px;
+            font-style: italic;
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        .action-plan {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        .plan-card {
+            background-color: var(--live-cinza-escuro);
+            border-radius: 12px;
+            padding: 30px;
+            width: 100%;
+            max-width: 450px;
+            text-align: left;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .plan-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 232, 0, 0.2);
+        }
+        .plan-card .etapa {
+            background-color: var(--live-verde-vibrante);
+            color: var(--live-azul-petroleo);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        .plan-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        .plan-card .duracao {
+            font-weight: 600;
+            color: var(--live-verde-vibrante);
+            margin-bottom: 15px;
+        }
+        .scope-list, .investment-details {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: left;
+        }
+        .scope-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 25px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        .scope-item .icon {
+            flex-shrink: 0;
+            fill: var(--live-verde-vibrante);
+            width: 30px;
+            height: 30px;
+            margin-top: 5px;
+        }
+        .scope-item h4 {
+            font-size: 1.2rem;
+            color: var(--live-verde-vibrante);
+            margin: 0 0 5px 0;
+        }
+        .investment-table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: var(--live-cinza-escuro);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .investment-table th, .investment-table td {
+            padding: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .investment-table th {
+            font-size: 1.1rem;
+        }
+        .investment-table .total-row td {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--live-verde-vibrante);
+        }
+        .payment-conditions {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+        }
+        .footer {
+            margin-top: 60px;
+            padding: 40px 20px;
+            font-size: 0.9rem;
+            color: var(--live-cinza-medio);
+            border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+        }
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <img src="https://raw.githubusercontent.com/Clebito2/layout/main/Logo%20live%20oficial-36.png" alt="Logo Live Consultoria">
+    </header>
+
+    <main class="container">
+
+        <section id="proposta" class="hero">
+            <h2>Proposta de Mentoria em Liderança<br>para <span style="color: var(--live-verde-vibrante);">IMOL</span></h2>
+        </section>
+
+        <section id="diagnostico" class="section fade-in-section">
+            <h2>Diagnóstico Estratégico</h2>
+            <div class="diagnosis-box">
+                <p style="font-family: 'Merriweather', serif;">Após análise do cenário apresentado, identificamos um ponto de alavancagem crucial para a IMOL: o desenvolvimento das competências de liderança de sua equipe gestora. Atualmente, os líderes enfrentam desafios que impactam diretamente a performance e o clima organizacional, como a insegurança no relacionamento com clientes, a dificuldade em gerir conflitos e a ausência de uma postura com presença executiva. Esses fatores limitam o potencial de crescimento e a eficiência operacional. A nossa intervenção estratégica visa transformar este quadro, desenvolvendo líderes autoconfiantes, maduros e com elevado autoconhecimento, capazes de inspirar suas equipes e conduzir a empresa a um novo patamar de resultados.</p>
+            </div>
+        </section>
+
+        <section id="plano-acao" class="section fade-in-section">
+            <h2>Plano de Ação Estruturado</h2>
+            <p>Desenhamos um programa de mentoria de 6 meses, dividido em duas etapas complementares e sequenciais para garantir um desenvolvimento sólido e aplicável.</p>
+            <div class="action-plan">
+                <div class="plan-card">
+                    <div class="etapa">01</div>
+                    <h3>Fundamentos da Liderança de Impacto</h3>
+                    <div class="duracao">Duração: 3 Meses</div>
+                    <p>Fase intensiva com 8 encontros quinzenais focada em construir as bases da liderança. Abordaremos o autoconhecimento, o desenvolvimento da autoconfiança, modelos de gestão de conflitos, técnicas de comunicação assertiva e ferramentas para estabelecer uma postura de líder.</p>
+                </div>
+                <div class="plan-card">
+                    <div class="etapa">02</div>
+                    <h3>Liderança em Ação e Performance</h3>
+                    <div class="duracao">Duração: 3 Meses</div>
+                    <p>Com as bases estabelecidas, esta fase terá 4 encontros mensais para aplicar e refinar as competências no dia a dia. O foco será em estudos de caso reais da IMOL, gestão de demandas urgentes e consolidação da presença e da segurança no trato com equipes e clientes.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="escopo" class="section fade-in-section">
+            <h2>Escopo Detalhado dos Entregáveis</h2>
+            <div class="scope-list">
+                <div class="scope-item">
+                    <svg class="icon" viewBox="0 0 24 24"><path d="M19 19V5H5v14h14m0-16a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14M17 11h-4v4h-2v-4H7v-2h4V5h2v4h4v2Z"></path></svg>
+                    <div>
+                        <h4>12 Encontros de Mentoria em Grupo</h4>
+                        <p>Sessões estruturadas (8 quinzenais + 4 mensais) com duração de 2 horas cada, conduzidas por Luiz Portal, utilizando metodologias ativas e personalizadas.</p>
+                    </div>
+                </div>
+                <div class="scope-item">
+                    <svg class="icon" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path></svg>
+                    <div>
+                        <h4>Ferramentas de Autoconhecimento</h4>
+                        <p>Aplicação de assessments (como DISC ou similar) para mapear perfis comportamentais e acelerar o desenvolvimento individual de cada um dos 6 líderes.</p>
+                    </div>
+                </div>
+                <div class="scope-item">
+                     <svg class="icon" viewBox="0 0 24 24"><path d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm0 12H4V6h5.17l2 2H20v10z"></path></svg>
+                    <div>
+                        <h4>Material de Apoio Exclusivo</h4>
+                        <p>Acesso a resumos, frameworks e ferramentas práticas discutidas durante as sessões para consulta e aplicação contínua.</p>
+                    </div>
+                </div>
+                 <div class="scope-item">
+                    <svg class="icon" viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"></path></svg>
+                    <div>
+                        <h4>Plano de Desenvolvimento Individual (PDI)</h4>
+                        <p>Construção de um PDI para cada participante, com metas claras para o desenvolvimento das competências trabalhadas.</p>
+                    </div>
+                </div>
+                <div class="scope-item">
+                    <svg class="icon" viewBox="0 0 24 24"><path d="M21.99 4c0-1.1-.89-2-1.99-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14l4 4-.01-18zM18 14H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"></path></svg>
+                    <div>
+                        <h4>Suporte Contínuo</h4>
+                        <p>Canal de comunicação direto com o consultor para dúvidas e orientações pontuais entre os encontros.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="investimento" class="section fade-in-section">
+            <h2>Investimento</h2>
+            <div class="investment-details">
+                <table class="investment-table">
+                    <thead>
+                        <tr>
+                            <th>Descrição do Serviço</th>
+                            <th style="text-align: right;">Valor</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Programa de Mentoria em Liderança (6 meses)</td>
+                            <td style="text-align: right;">R$ 4.600,00 / mês</td>
+                        </tr>
+                        <tr class="total-row">
+                            <td>VALOR TOTAL</td>
+                            <td style="text-align: right;">R$ 27.600,00</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="payment-conditions">
+                    <h4>Condições de Pagamento</h4>
+                    <p>6 (seis) parcelas mensais e consecutivas de R$ 4.600,00, com pagamentos realizados via transferência bancária ou PIX mediante apresentação da respectiva Nota Fiscal de Serviços.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <footer class="footer">
+        <p>Desenvolvido por Ecossistema Live</p>
+        <p>Todos os direitos reservados &copy; 2025</p>
+    </footer>
+
+    <script>
+        // Script para animação ao rolar a página
+        document.addEventListener("DOMContentLoaded", () => {
+            const sections = document.querySelectorAll('.fade-in-section');
+
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+
+</body>
+</html>
